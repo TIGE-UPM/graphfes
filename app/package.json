@@ -1,0 +1,16 @@
+{
+  "name": "GraphFES",
+  "version": "0.2",
+  "dependencies": {
+    "express": "4.x",
+    "body-parser": "1.0.1",
+    "request": "",
+    "ejs": "~0.8.5",
+    "js-beautify": "",
+    "html-to-text": "",
+    "php-unserialize": "",
+    "elementtree": "",
+    "express-partials":"",
+    "async":""
+  }
+}
