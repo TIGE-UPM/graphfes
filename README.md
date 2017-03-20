@@ -8,6 +8,7 @@ GraphFES is a project started by TIGE-UPM, and developed by Ignacio Suárez-Nava
 # Project log
 
 v.0.1. GraphFES for Moodle 2.8/2.9 (ISN/AHG). Initial version.
+
 v.0.2. GraphFES for Moodle 3.0/3.1 (AHG). Added support for Moodle 3 and bug correction. Uploaded to GitHub.
 
 # Installation
