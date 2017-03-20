@@ -1,0 +1,35 @@
+Elija el curso:
+<br/><br/>
+<form method='post' action='/grafo' id="course" enctype="application/x-www-form-urlencoded">
+<input type="hidden" value=<%=url%> name='url'>
+<input type="hidden" value=<%=token%> name='token'>
+<input type="hidden" value=<%=array%> name='courses'>
+<div class="row">
+<div class="col-md-3">
+	Seleccione el curso:
+</div>
+
+<div class="col-md-3">
+<select id="id" name="id"></select>
+<script type="text/javascript">
+var arrays = <%- JSON.stringify(array) %>;
+for(i=0;i<arrays.length;i++){
+  var opt = document.createElement("option");
+  opt.text = arrays[i]['id']+'-'+arrays[i]['fullname'];
+  opt.value = arrays[i]['id'];
+  document.getElementById("id").add(opt,0);
+}
+</script>
+</div></div> 
+<br/><br/> 
+<div class="row">
+<input type="submit" value="Enviar" >
+</div>  
+</form>
+<br/> 
+<div class="row">
+<form method='GET' action='/history' id="history" enctype="application/x-www-form-urlencoded">
+<input type="submit" value="Mis grafos" >
+<input type="hidden" value=<%=token%> name='token'>
+</form>
+</div>  

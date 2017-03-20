@@ -1,0 +1,38 @@
+<h2>
+Bienvenido a GraphFES
+</h2>
+Para empezar introduzca la URL del curso de moodle para obtener un archivo de grafos.
+<br/><br/>
+<form method='post' action='/connect' id="course" enctype="application/x-www-form-urlencoded">
+<div class="row">
+<div class="col-md-3">
+	Introduzca la URL del curso:
+</div> 
+<div class="col-md-3"> <input type='text' size=50 name='url'/> </div>
+</div> 
+<br/>
+<div class="row">
+<div class="col-md-3">
+	Introduzca Usuario:
+</div> 
+<div class="col-md-3"> <input type='text' name='username' /> </div>
+</div> 
+<br/>
+<div class="row">
+<div class="col-md-3"> Introduzca Contraseña: </div> 
+<div class="col-md-2"> <input type='password' name='password'/> </div>
+</div> 
+<br/>
+<div class="row">
+<div class="col-md-3"> Nombre del servicio: </div> 
+<div class="col-md-2"> <input type='text' name='service'/> </div>
+<input type="submit" value="Enviar" padding=100px>
+</div> 
+</form>
+
+<% var msg="";
+if (msgAler=!null){
+	msg=msgAlert;
+}
+%>
+<%=msg%>

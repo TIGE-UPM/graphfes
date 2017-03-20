@@ -1,0 +1,37 @@
+<link rel='stylesheet' href='/stylesheets/style.css' />
+<a href="javascript:history.back()"> <-Volver </a> 
+<br/> 
+<br/> 
+<div class="title" border="1">
+	<table>
+	<tr>
+		<th>  Id curso  </th>
+		<th>  Fecha  </th>
+		<th>  Tipo  </th>
+		<th>  Descarga  </th>
+		<th>  Visualizar  </th>
+	</tr>
+	
+	<% for (var i in history) {
+    if(token==history[i].token){
+	%>
+	<tr>
+		<td> <%=history[i].courseid%> </td>
+		<td> <%= history[i].date%> </td>
+		<td> <img src="images/<%= history[i].typeImg %>" width="32px" /> <%=history[i].type%>  </td>
+		<td> <a href=/graphs/<%=  history[i].filename %>>Descargar</a> </td>
+		<td> <a href=/viewer?filename=<%=  history[i].filename %>><img src="images/graph.png" width="32px"/></a> </td>
+	</tr>
+	
+	<% }} %>
+	</table>
+</div>
+
+<br/> 
+<br/> 
+<br/> 
+<br/> 
+
+<div><p id="att">Icons made by <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>             is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>
+</p>
+</div>

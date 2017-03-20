@@ -1,0 +1,46 @@
+<html>
+<a href="javascript:history.back()"> <-Volver </a> 
+<head>
+<style type="text/css">
+  #sigma-container {
+    max-width: 700px;
+    height: 500px;
+    margin: auto;
+  }
+</style>
+</head>
+<body>
+
+<div id="sigma-container"></div>
+
+<script src="/javascripts/sigma.min.js"></script>
+<script src="/javascripts/sigma.parsers.gexf.min.js"></script>
+<script src="/javascripts/sigma.layout.forceAtlas2.min.js"></script>
+
+
+<script>
+  fileroute='/graphs/<%= file %>';
+  sigma.parsers.gexf(fileroute.toString(), {
+  container: 'sigma-container'},
+  function(s){
+  var num=0;
+    s.graph.nodes().forEach(function(node, i, a) {
+    num=a.length;
+    node.label=node.attributes[0].toString();
+  	node.x = Math.cos(Math.PI * 2 * i / a.length);
+  	node.y = Math.sin(Math.PI * 2 * i / a.length);
+  	node.size=8;
+  	node.color='#f00';
+	});
+	s.refresh();
+    s.startForceAtlas2({worker: true,adjustSizes:true,gravity:10,outboundAttractionDistribution:true,edgeWeightInfluence:0.3,scalingRatio:10});
+    setTimeout(function(){s.stopForceAtlas2();},num*30);
+    });
+</script>
+
+
+</body>
+</html>
+
+
+
