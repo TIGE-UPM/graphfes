@@ -1,0 +1,23 @@
+body {
+  padding: 50px;
+  font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+
+
+table, th, td {
+    border: 1px solid black;
+    text-align: center;
+    padding: 8px;
+    margin: auto;
+}
+
+th {
+    background-color: blue;
+    color: white;
+}
+
+p#att {
+    color:black;
+    font: 6px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
