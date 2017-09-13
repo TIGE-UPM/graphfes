@@ -423,7 +423,7 @@ viewsGraph = function(array) {
     //console.log(xml);
     //console.log("XML de vistas completado...");
     var date = Date.now();
-    fs.writeFile(__dirname + '/../graphs/Vistas_' + date + '.gexf', xml.toString({
+    fs.writeFile(__dirname + '/../public/graphs/Vistas_' + date + '.gexf', xml.toString({
         pretty: true
     }), function(err) {
         if (err) throw err;
@@ -562,7 +562,7 @@ responsesGraph = function(array) {
     });
     //console.log(xml);
     var date = Date.now();
-    fs.writeFile(__dirname + '/../graphs/Respuestas_' + date + '.gexf', xml.toString({
+    fs.writeFile(__dirname + '/../public/graphs/Respuestas_' + date + '.gexf', xml.toString({
         pretty: true
     }), function(err) {
         if (err) throw err;
@@ -707,7 +707,7 @@ messageGraph = function(array) {
     });
     //console.log(xml);
     var date = Date.now();
-    var filename = __dirname + '/../graphs/Mensajes_' + date + '.gexf';
+    var filename = __dirname + '/../public/graphs/Mensajes_' + date + '.gexf';
     fs.writeFile(filename, xml.toString({
         pretty: true
     }), function(err) {
