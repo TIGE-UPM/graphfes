@@ -156,11 +156,13 @@ getLogs = function(req, res) {
                     var other = respuesta[i]['other'].replace(/(\r\n|\n|\r)/gmi, "  ");
                     //console.log("Se ha encontrado una discusion con id: "+respuesta[i]['objectid']);
                     //console.log(other);
-                    other = PHPUnserialize.unserialize(other);
-                    arrayDiscussions.push({
-                        discussionid: respuesta[i]['objectid'],
-                        forumid: other['forumid']
-                    });
+					if (respuesta[i]['objectid'] > 0) {	// Este "if" es necesario porque en lib/classes/event/base.php: The value used when an id can not be mapped during a restore. const NOT_MAPPED = -31337;
+						other = PHPUnserialize.unserialize(other);
+						arrayDiscussions.push({
+							discussionid: respuesta[i]['objectid'],
+							forumid: other['forumid']
+						});
+					}
                 }
 
                 if (respuesta[i]['action'] == 'viewed' && respuesta[i]['target'] == 'discussion') {
@@ -191,6 +193,7 @@ getLogs = function(req, res) {
                     }
                 }
                 request(optionsDiscussions, function(error, response, body) {
+					//setTimeout(function () {console.log("1 second later...");}, 1000);				
                     if (!error && response.statusCode == 200) {
                         completed_requests++;
                         var respuesta = JSON.parse(body);
@@ -198,7 +201,7 @@ getLogs = function(req, res) {
 						//console.log("Status OK!   URL: "+optionsDiscussions['url']+"&discussionid="+optionsDiscussions['qs']['discussionid']);
                     } else {
 						error_requests++;
-						//console.log("Error: "+error+". Status: "+response.statusCode+"   URL: "+optionsDiscussions['url']+"&discussionid="+optionsDiscussions['qs']['discussionid']);
+						console.log("Error: "+error+". Status: "+response.statusCode+"   URL: "+optionsDiscussions['url']+"&discussionid="+optionsDiscussions['qs']['discussionid']);
 					}
                     if ((error_requests+completed_requests) == arrayDiscussions.length) {
                         console.log("Ya estan hechas las request de posts");
